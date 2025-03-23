@@ -69,6 +69,7 @@ describe("mostDigits", function () {
   });
 });
 
+// modified to accept in place sort
 describe("radixSort", function () {
   it("should exist", function () {
     expect(typeof radixSort).toBe(
@@ -78,17 +79,27 @@ describe("radixSort", function () {
   });
 
   it("should sort arrays of numbers", function () {
-    expect(radixSort([8, 6, 1, 12])).toEqual(
-      [1, 6, 8, 12],
+    let arr;
+
+    arr = [8, 6, 1, 12];
+    radixSort(arr);
+
+    expect(arr).toEqual([1, 6, 8, 12],
       "radixSort([8, 6, 1, 12]) should equal [1, 6, 8, 12]."
     ); //
-    expect(radixSort([10, 100, 1, 1000, 10000000])).toEqual(
+
+    arr = [10, 100, 1, 1000, 10000000];
+    radixSort(arr);
+
+    expect(arr).toEqual(
       [1, 10, 100, 1000, 10000000],
       "radixSort([10, 100, 1, 1000, 10000000]) should equal [1, 10, 100, 1000, 10000000]."
     ); //
-    expect(
-      radixSort([902, 4, 7, 408, 29, 9637, 1556, 3556, 8157, 4386, 86, 593])
-    ).toEqual(
+
+    arr = [902, 4, 7, 408, 29, 9637, 1556, 3556, 8157, 4386, 86, 593];
+    radixSort(arr);
+
+    expect(arr).toEqual(
       [4, 7, 29, 86, 408, 593, 902, 1556, 3556, 4386, 8157, 9637],
       "radixSort([902, 4, 7, 408, 29, 9637, 1556, 3556, 8157, 4386, 86, 593]) should equal [4, 7, 29, 86, 408, 593, 902, 1556, 3556, 4386, 8157, 9637]."
     );
